@@ -1,0 +1,61 @@
+ROOM
+Properties:-
+    Number: int
+    Facing: {Outside, Inside}
+    Comments: string
+
+Out-Relations:-
+    ROOM -PART_OF-> WING
+
+In-Relations:-
+    STUDENT -LIVES_IN-> ROOM
+
+----------------------------
+
+WING
+Properties:-
+    Number: 
+    Has Water: {Cooler, Filter, None}
+    No. Western Toilets: int
+    No. Total Toilets: int
+
+Out-Relations:-
+    WING -PART_OF2-> HOSTEL
+
+In-Relations:-
+    ROOM -PART_OF-> WING
+
+-----------------------------
+
+HOSTEL
+Properties:-
+    Name: {AH1...AH9, CH1, CH4, CH5, CH6, DH5, DH6}
+    Gender: {Boys, Girls}
+    
+Out-Relations:-
+    WING -PART_OF2-> HOSTEL
+
+-----------------------------
+
+STUDENT
+Properties:-
+    Name: string
+    ID: string
+    Phone: string(?)
+    Open to Swap: Boolean
+
+Out-Relations:-
+    STUDENT -LIVES_IN-> ROOM
+    STUDENT -PREFERS-> PREFERENCE
+
+In-Relations:-
+
+-----------------------------
+
+PREFERENCE
+Properties:-
+    Name: {AH1...AH9, CH1, CH4, CH5, CH6, DH5, DH6}
+    Room Range Start: int
+    Room Range End: int
+    Facing: {Outside, Inside, ANY}
+    [Western Toilets: int OR null]
